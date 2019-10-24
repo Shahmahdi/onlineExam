@@ -2,7 +2,7 @@ import React from 'react'
 import { NavbarTop } from '../components/common/Navbar'
 import { Sidebar } from '../components/common/Sidebar'
 
-export const LandingPage = () => {
+export const ExamPage = () => {
   return (
     <div className="cf">
       <div className="fl w-100">
@@ -14,7 +14,7 @@ export const LandingPage = () => {
             </div>
             <div className="fl w-100 pl5 pl11-l pl6-m bg-tigrow">
               <div className="cf" style={{ height: 'calc(100vh - 50px)' }}>
-                Landing page
+                Exam page
               </div>
             </div>
           </div>

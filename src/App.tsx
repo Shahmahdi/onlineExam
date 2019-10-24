@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SignInPage } from './pages/SignInPage';
 import { SignUpPage } from './pages/SignupPage';
 import { LandingPage } from './pages/LandingPage';
+import { AboutPage } from './pages/AboutPage';
+import { ExamPage } from './pages/ExamPage';
 
 // const PrivateRoute = (props: {
 // 	component: any;
@@ -49,6 +51,16 @@ const App: React.FC = () => {
           exact
           path="/landing"
           render={r =><LandingPage />}
+        />
+        <Route
+          exact
+          path="/about"
+          render={r =><AboutPage />}
+        />
+        <Route
+          exact
+          path="/exam"
+          render={r =><ExamPage />}
         />
         {/* <PrivateRoute
           path="/landing"
