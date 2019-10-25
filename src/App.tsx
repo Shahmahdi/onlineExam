@@ -36,7 +36,7 @@ const App: React.FC = () => {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/signin"
           // render={r =>
           //   isAuthenticate() ? <Redirect to="/" /> : <SignInPage />
           // }
@@ -49,7 +49,7 @@ const App: React.FC = () => {
         />
         <Route
           exact
-          path="/landing"
+          path="/"
           render={r =><LandingPage />}
         />
         <Route
