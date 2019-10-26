@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavbarTop } from '../components/common/Navbar'
 import { Button, Card, Elevation } from '@blueprintjs/core'
+import { Link } from 'react-router-dom'
 // import { Sidebar } from '../components/common/Sidebar'
 
 export const LandingPage = () => {
   return (
     <div className="cf">
       <div className="fl w-100">
-        <NavbarTop />
+        <NavbarTop backgroundColor="white" />
         {/* <div className="fl w-100 bg-tigrowLightGray-1" style={{ marginTop: '50px' }}>
           <div className="flex w-100">
             <div className="db">
@@ -26,12 +27,14 @@ export const LandingPage = () => {
               <p className="mb0 f1 white fw1 tc" style={{ letterSpacing: '10px' }}>Prepare for</p>
               <p className="mb0 b f1 white tc" style={{ letterSpacing: '10px' }}>Your Exams Here</p>
               <div className="tc pt3">
-                <Button
-                  className="w-30 mr3 fw5"
-                  style={{ borderRadius: '25px' }}
-                  text="E-Exam"
-                  large={true}
-                />
+                <Link to="/exam">
+                  <Button
+                    className="w-30 mr3 fw5"
+                    style={{ borderRadius: '25px' }}
+                    text="E-Exam"
+                    large={true}
+                  />
+                </Link>
                 <Button
                   className="w-30 fw5"
                   style={{ borderRadius: '25px' }}

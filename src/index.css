@@ -5,6 +5,8 @@ body{
   .shadow-0{
     box-shadow: none !important;
   }
+
+  button:focus {outline:0;}
   
   .bg-0{
     background-color: none;

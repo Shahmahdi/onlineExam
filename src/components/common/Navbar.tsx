@@ -3,7 +3,9 @@ import { Button, Popover, Position, ButtonGroup } from '@blueprintjs/core';
 import { Link } from "react-router-dom";
 import { withRouter, RouteComponentProps } from 'react-router';
 
-const NavbarTopComponent = (props: RouteComponentProps) => {
+const NavbarTopComponent = (props: {
+  backgroundColor?: string;
+} & RouteComponentProps) => {
   return (
     <>
       {/* <nav className="bp3-navbar bp3-fixed-top">
@@ -48,7 +50,12 @@ const NavbarTopComponent = (props: RouteComponentProps) => {
           </Popover>
         </div>
       </nav> */}
-      <nav className="dt fixed w-100 border-box pa3 ph5-ns bg-white">
+      <nav 
+        className="dt fixed w-100 border-box pa3 ph5-ns bg-white"
+        style={{
+          backgroundColor: props.backgroundColor ? `${props.backgroundColor}` : 'none'
+        }}
+      >
         <a className="dtc v-mid mid-gray link dim w-25" href="#" title="Home">
           <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100" alt="Site Name" />
         </a>
@@ -58,16 +65,20 @@ const NavbarTopComponent = (props: RouteComponentProps) => {
           <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="E-Exam">E-Exam</a>
           <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Courses">Courses</a>
           <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="ContactUs">Contact Us</a>
-          <Button
-            className="dib w-10 mr3 mr4-ns fw5"
-            style={{ borderRadius: '25px' }}
-            text="Sign in"
-          />
-          <Button
-            className="dib fw5 w-10"
-            style={{ borderRadius: '25px' }}
-            text="Sign up"
-          />
+          <Link to="/signin">
+            <Button
+              className="dib w-10 mr3 mr4-ns fw5"
+              style={{ borderRadius: '25px' }}
+              text="Sign in"
+            />
+          </Link>
+          <Link to="/signup">
+            <Button
+              className="dib fw5 w-10"
+              style={{ borderRadius: '25px' }}
+              text="Sign up"
+            />
+          </Link>
         </div>
       </nav>
     </>

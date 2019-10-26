@@ -7,6 +7,7 @@ import { SignUpPage } from './pages/SignupPage';
 import { LandingPage } from './pages/LandingPage';
 import { AboutPage } from './pages/AboutPage';
 import { ExamPage } from './pages/ExamPage';
+import { QuestionSheetPage } from './pages/QuestionSheetPage';
 
 // const PrivateRoute = (props: {
 // 	component: any;
@@ -61,6 +62,11 @@ const App: React.FC = () => {
           exact
           path="/exam"
           render={r =><ExamPage />}
+        />
+        <Route
+          exact
+          path="/questionsheet"
+          render={r =><QuestionSheetPage />}
         />
         {/* <PrivateRoute
           path="/landing"
