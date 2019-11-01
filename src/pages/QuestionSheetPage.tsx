@@ -1,8 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavbarTop } from '../components/common/Navbar'
-import { Button, RadioGroup, Radio } from '@blueprintjs/core'
+import { Button, RadioGroup, Radio, Popover, Position, Menu, MenuItem, Intent } from '@blueprintjs/core'
 
-export const QuestionSheetPage = () => {
+const demoQuestionAnswerData = [
+  {
+    question: '1. Bangladeser Rajdhani koi ?',
+    options: ['dhaka', 'rajshahi', 'barisal', 'jani na'],
+    correctAnswer: 'dhaka',
+    selectedAnswer: ''
+  },
+  {
+    question: '1. Bangladeser Rajdhani koi ?',
+    options: ['dhaka', 'rajshahi', 'barisal', 'jani na'],
+    correctAnswer: 'dhaka',
+    selectedAnswer: ''
+  },
+  {
+    question: '1. Bangladeser Rajdhani koi ?',
+    options: ['dhaka', 'rajshahi', 'barisal', 'jani na'],
+    correctAnswer: 'dhaka',
+    selectedAnswer: ''
+  }
+]
+
+interface IDemoQuestionAnswerData {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+  selectedAnswer: string;
+}
+
+export const QuestionSheetPage = (props: {
+  examListView: { view: number, title: string }
+  setExamListView: ({ }: { view: number, title: string }) => void;
+}) => {
+
+  const [questionSet, setQuestionSet] = useState(demoQuestionAnswerData as IDemoQuestionAnswerData[]);
+  const [examFinish, setExamFinish] = useState(false);
+  const [correctNumber, setCorrectNumber] = useState(0);
+
+  const onChange = (value: string, index: number) => {
+    setQuestionSet(
+      questionSet.map((q: IDemoQuestionAnswerData, i: number) => {
+        if (i === index) {
+          let newValue = q;
+          newValue.selectedAnswer = value;
+          return newValue;
+        } else {
+          return q;
+        }
+      }) as any);
+  }
+
+  const onSubmit = () => {
+    props.setExamListView({view: 0, title: ''})
+    setExamFinish(true);
+  }
+
   return (
     <div className="cf">
       <div className="fl w-100">
@@ -13,15 +67,47 @@ export const QuestionSheetPage = () => {
               <div className="dt--fixed-ns dt-ns pa3 w-100">
                 <div className="dtc-ns tc v-mid">
                   <div className="h-100 v-mid">
-                    <h2 className="fw4 blue mt0 mb3">Bangla 1st Paper</h2>
+                    <h2 className="fw4 blue mt0 mb3">{props.examListView.title}</h2>
                   </div>
                 </div>
                 <div className="dtc-ns f3 tr v-mid">
                   <p className="dib h-100 mb0 pr4 v-mid">00:45:00</p>
-                  <Button
-                    className="dib w-10 mr3 mr4-ns fw5"
-                    style={{ borderRadius: '25px' }}
-                    text="Submit"
+                  <Popover
+                    modifiers={
+                      {
+                        preventOverflow: {
+                          enabled: true,
+                          boundariesElement: 'viewport'
+                        }
+                      }
+                    }
+                    className="fr"
+                    target={
+                      <Button
+                        className="dib w-100 mr3 mr4-ns fw5"
+                        style={{ borderRadius: '25px' }}
+                        text="Submit"
+                      />
+                    }
+
+                    position={Position.RIGHT_TOP}
+                    content={
+                      <Menu>
+                        <MenuItem
+                          icon="confirm"
+                          text="Confirm"
+                          intent={Intent.SUCCESS}
+                          className="pt-minimal"
+                          onClick={(e: any) => onSubmit()}
+                        />
+                        <MenuItem
+                          icon="cross"
+                          text="Cancel"
+                          intent={Intent.PRIMARY}
+                          className="pt-minimal pt-popover-dismiss"
+                        />
+                      </Menu>
+                    }
                   />
                 </div>
               </div>
@@ -29,43 +115,21 @@ export const QuestionSheetPage = () => {
           </section>
         </div>
         <div style={{ marginTop: '132px' }}>
-          {/* <div className="flex h-100 items-center justify-center"> */}
-
           <div className="flex justify-center pt4">
             <div className="w-75 f4">
-              <RadioGroup
-                className="mb4"
-                label="1. Bangladeser Rajdhani koi ?"
-                onChange={e => console.log(e)}
-                selectedValue={"one"}
-              >
-                <Radio label="jani na" value="one" />
-                <Radio label="jani na" value="two" />
-                <Radio label="jani na" value="three" />
-                <Radio label="jani na" value="three" />
-              </RadioGroup>
-              <RadioGroup
-                className="mb4"
-                label="1. Bangladeser Rajdhani koi ?"
-                onChange={e => console.log(e)}
-                selectedValue={"one"}
-              >
-                <Radio label="jani na" value="one" />
-                <Radio label="jani na" value="two" />
-                <Radio label="jani na" value="three" />
-                <Radio label="jani na" value="three" />
-              </RadioGroup>
-              <RadioGroup
-                className="mb4"
-                label="1. Bangladeser Rajdhani koi ?"
-                onChange={e => console.log(e)}
-                selectedValue={"one"}
-              >
-                <Radio label="jani na" value="one" />
-                <Radio label="jani na" value="two" />
-                <Radio label="jani na" value="three" />
-                <Radio label="jani na" value="three" />
-              </RadioGroup>
+              {demoQuestionAnswerData.map((d, index) => (
+                <RadioGroup
+                  className="mb4"
+                  label={d.question}
+                  onChange={e => onChange(e.currentTarget.value, index)}
+                  selectedValue={`${questionSet[index].selectedAnswer}`}
+                >
+                  {console.log(questionSet)}
+                  {d.options.map(o => (
+                    <Radio label={o} value={o} />
+                  ))}
+                </RadioGroup>
+              ))}
             </div>
           </div>
         </div>

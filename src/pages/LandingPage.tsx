@@ -9,19 +9,7 @@ export const LandingPage = () => {
     <div className="cf">
       <div className="fl w-100">
         <NavbarTop backgroundColor="white" />
-        {/* <div className="fl w-100 bg-tigrowLightGray-1" style={{ marginTop: '50px' }}>
-          <div className="flex w-100">
-            <div className="db">
-              <Sidebar />
-            </div>
-            <div className="fl w-100 pl5 pl11-l pl6-m bg-tigrow">
-              <div className="cf" style={{ height: 'calc(100vh - 50px)' }}>
-                Landing page
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <div className="vw-100 vh-100" style={{ backgroundColor: '#40c5f4' }}>
+        <div id="home" className="vw-100 vh-100" style={{ backgroundColor: '#40c5f4' }}>
           <div className="flex h-100 items-center justify-center">
             <div>
               <p className="mb0 f1 white fw1 tc" style={{ letterSpacing: '10px' }}>Prepare for</p>
@@ -45,7 +33,7 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div id="" className="vw-100 vh-100" style={{ backgroundColor: 'yellow' }}>
+        <div id="aboutUs" className="vw-100 vh-100" style={{ backgroundColor: 'yellow' }}>
           <div className="flex h-100 items-center justify-center">
             <div className="flex items-center w-70">
               <div className="fl w-40 tc f1">
@@ -70,7 +58,7 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="vw-100 vh-100">
+        <div id="courses" className="vw-100 vh-100">
           <div className="flex h-100 items-center justify-center">
             <div className="flex items-center w-80" style={{ height: '65%' }}>
               <div className="f1 fl flex flex-column h-100 justify-center tc w-25">
@@ -78,14 +66,29 @@ export const LandingPage = () => {
                 <p className="mb0 b ">COURSES</p>
               </div>
               <div className="fl flex h-100 w-75">
-                <Card className="fl w-third" interactive={true} elevation={Elevation.TWO}>
-                  <p className="f1 flex h-100 items-center justify-center">Bangla</p>
+                <Card className="fl flex flex-column w-third" interactive={true} elevation={Elevation.TWO}>
+                  <p className="f1 flex flex-auto items-center justify-center mb0">Bangla</p>
+                  <Button
+                    className="dib w-100 mr3 mr4-ns fw5"
+                    style={{ borderRadius: '25px' }}
+                    text="View more"
+                  />
                 </Card>
-                <Card className="fl w-third" interactive={true} elevation={Elevation.TWO}>
-                  <p className="f1 flex h-100 items-center justify-center">English</p>
+                <Card className="fl flex flex-column w-third" interactive={true} elevation={Elevation.TWO}>
+                  <p className="f1 flex flex-auto items-center justify-center mb0">English</p>
+                  <Button
+                    className="dib w-100 mr3 mr4-ns fw5"
+                    style={{ borderRadius: '25px' }}
+                    text="View more"
+                  />
                 </Card>
-                <Card className="fl w-third" interactive={true} elevation={Elevation.TWO}>
-                  <p className="f1 flex h-100 items-center justify-center">Biology</p>
+                <Card className="fl flex flex-column w-third" interactive={true} elevation={Elevation.TWO}>
+                  <p className="f1 flex flex-auto items-center justify-center mb0">Biology</p>
+                  <Button
+                    className="dib w-100 mr3 mr4-ns fw5"
+                    style={{ borderRadius: '25px' }}
+                    text="View more"
+                  />
                 </Card>
               </div>
             </div>

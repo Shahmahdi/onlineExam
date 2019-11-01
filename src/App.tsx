@@ -63,11 +63,11 @@ const App: React.FC = () => {
           path="/exam"
           render={r =><ExamPage />}
         />
-        <Route
+        {/* <Route
           exact
           path="/questionsheet"
           render={r =><QuestionSheetPage />}
-        />
+        /> */}
         {/* <PrivateRoute
           path="/landing"
           exact={true}

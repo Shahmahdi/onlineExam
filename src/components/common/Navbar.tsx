@@ -60,10 +60,10 @@ const NavbarTopComponent = (props: {
           <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100" alt="Site Name" />
         </a>
         <div className="dtc v-mid w-75 tr">
-          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Home">Home</a>
-          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="AboutUs">About Us</a>
-          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="E-Exam">E-Exam</a>
-          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Courses">Courses</a>
+          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#home" title="Home">Home</a>
+          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#aboutUs" title="AboutUs">About Us</a>
+          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#e-exam" title="E-Exam">E-Exam</a>
+          <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#courses" title="Courses">Courses</a>
           <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="ContactUs">Contact Us</a>
           <Link to="/signin">
             <Button
