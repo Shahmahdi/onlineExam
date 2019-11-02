@@ -49,9 +49,7 @@ export const ExamPage = () => {
                   panelClassName="w-100"
                   style={{ outline: '0' }}
                   panel={
-                    <Card
-                    // interactive={true}
-                    >
+                    <Card>
                       <h5>Subject: Bangla 2nd Paper</h5>
                       <p>Syllabus: Chap 1 & 2</p>
                       <p>Questions: 60 marks</p>
@@ -71,9 +69,7 @@ export const ExamPage = () => {
                   panelClassName="w-100"
                   style={{ outline: '0' }}
                   panel={
-                    <Card
-                    // interactive={true}
-                    >
+                    <Card>
                       <h5>Subject: Biology</h5>
                       <p>Syllabus: Chap 1 & 2</p>
                       <p>Questions: 60 marks</p>
