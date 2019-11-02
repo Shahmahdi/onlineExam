@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { NavbarTop } from '../components/common/Navbar'
 import { Button, RadioGroup, Radio, Popover, Position, Menu, MenuItem, Intent } from '@blueprintjs/core'
-import { isEqual } from 'lodash'
+import { isEqual } from 'lodash';
+import Countdown from 'react-countdown-now';
 
 const demoQuestionAnswerData = [
   {
@@ -93,7 +94,9 @@ export const QuestionSheetPage = (props: {
                     </p>
                     :
                     <>
-                      <p className="dib h-100 mb0 pr4 v-mid">00:45:00</p>
+                      <p className="dib h-100 mb0 pr4 v-mid">
+                        <Countdown date={Date.now() + 600000} />
+                      </p>
                       <Popover
                         modifiers={
                           {
